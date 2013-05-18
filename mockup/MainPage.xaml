@@ -1,0 +1,161 @@
+﻿<phone:PhoneApplicationPage xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"  
+    x:Class="mockup.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:mockup"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="IVLE Metro" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="Log In" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="40,0,40,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="260"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock 
+                x:Name="Username" 
+                Text="Username: " 
+                FontSize="28"
+                Grid.Column="0"
+                Grid.Row="0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"/>
+            
+            <TextBox
+                x:Name="UsernameInput" 
+                Grid.Column="1" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center" 
+                Width="260" />
+            
+            <TextBlock
+                x:Name="Password"
+                Text="Password: "
+                FontSize="28"
+                Grid.Column="0"
+                Grid.Row="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"/>
+            
+            <PasswordBox
+                x:Name="PasswordInput" Grid.Column="1"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" Width="260" />
+            
+            <TextBlock
+                x:Name="Domain"
+                Text="Domain: "
+                FontSize="28"
+                Margin="10"
+                Grid.Column="0"
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                TextAlignment="Right"/>
+            
+            <toolkit:ListPicker
+                x:Name="DomainInput"
+                Grid.Column="1"
+                Grid.Row="2" HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" Width="240" Margin="10,0" Height="Auto">
+                
+                <toolkit:ListPickerItem 
+                    x:Name="NUSSTU" 
+                    Content="NUSSTU"/>
+                <toolkit:ListPickerItem 
+                    x:Name="NUSSTF" 
+                    Content="NUSSTF"/>
+                <toolkit:ListPickerItem 
+                    x:Name="NUSEXT" 
+                    Content="NUSEXT"/>
+                <toolkit:ListPickerItem 
+                    x:Name="GUEST" 
+                    Content="GUEST"/>
+                
+            </toolkit:ListPicker>
+            <Button 
+                x:Name="offline" 
+                Content="Offline"
+                Grid.Column="1"
+                Grid.Row="4"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" Width="180" Click="offlineMode_Click" Margin="80,0,0,0" />
+            
+            <Button x:Name="login" Content="Log In" 
+                Grid.Column="1"
+                Grid.Row="5"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                Width="180" 
+                Margin="80,0,0,0" 
+                Click="login_Click" 
+                local:TiltEffect.IsTiltEnabled="True"/>
+            
+            <CheckBox 
+                x:Name="rmbMe" 
+                Content="Remember Me" 
+                Grid.Row="5"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" Margin="0,0,176,0" Width="224" />
+        </Grid>
+        <toolkit:PerformanceProgressBar HorizontalAlignment="Left" Margin="0,140,0,0" Name="loginProgressBar" VerticalAlignment="Top" Height="13" Width="480" />
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>

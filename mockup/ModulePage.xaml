@@ -1,0 +1,317 @@
+﻿<phone:PhoneApplicationPage xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"  
+    x:Class="mockup.ModulePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        
+        <TextBlock 
+            x:Name="ModuleCodeTitle"
+            Margin="24,0,0,0"/>
+        <!--Pivot Control-->
+        <controls:Pivot>
+            <!--Pivot item one-->
+            <controls:PivotItem Header="Info">
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock
+                            Text="Module Code" 
+                            Grid.Row="0"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource PhoneTextLargeStyle}"/>
+
+                        <TextBlock
+                            x:Name="ModuleCode"
+                            Grid.Row="1"
+                            VerticalAlignment="Top"
+                            TextWrapping="Wrap"
+                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Margin="12,0,12,12"/>
+
+                        <TextBlock
+                            Text="Module Title" 
+                            Grid.Row="2"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource PhoneTextLargeStyle}"/>
+
+                        <TextBlock
+                            x:Name="ModuleTitle"
+                            Grid.Row="3"
+                            VerticalAlignment="Top"
+                            TextWrapping="Wrap"
+                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Margin="12,0,12,12"/>
+
+                        <TextBlock
+                            Text="Semester" 
+                            Grid.Row="4"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource PhoneTextLargeStyle}"/>
+
+                        <TextBlock
+                            x:Name="Semester"
+                            Grid.Row="5"
+                            VerticalAlignment="Top"
+                            TextWrapping="Wrap"
+                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Margin="12,0,12,12"/>
+
+                        <TextBlock
+                            Text="Module Credits" 
+                            Grid.Row="6"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource PhoneTextLargeStyle}"/>
+
+                        <TextBlock
+                            x:Name="ModuleCredits"
+                            Grid.Row="7"
+                            VerticalAlignment="Top"
+                            TextWrapping="Wrap"
+                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Margin="12,0,12,12"/>
+
+                        <TextBlock
+                            Text="Department" 
+                            Grid.Row="8"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource PhoneTextLargeStyle}"/>
+
+                        <TextBlock
+                            x:Name="Department"
+                            Grid.Row="9"
+                            VerticalAlignment="Top"
+                            TextWrapping="Wrap"
+                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Margin="12,0,12,12"/>
+
+                        <TextBlock
+                            Text="Facilitators" 
+                            Grid.Row="10"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource PhoneTextLargeStyle}"/>
+
+                        <ListBox 
+                            ItemsSource="{Binding}" 
+                            Name="Facilitators"
+                            Grid.Row="11">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="0, 0, 12, 0">
+                                        <TextBlock 
+                                            Text="{Binding Path=lecturerMember.memberName}" 
+                                            TextWrapping="Wrap"
+                                            Width="200"
+                                            TextAlignment="Left"
+                                            Style="{StaticResource  PhoneTextBlockBase}"/>
+                                        
+                                        <TextBlock 
+                                            Text="{Binding Path=lecturerMember.memberEmail}"   
+                                            TextWrapping="Wrap"
+                                            Width="200"
+                                            TextAlignment="Right"
+                                            Style="{StaticResource  PhoneTextSubtleStyle}"/>
+                                        
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <TextBlock
+                            Text="Lecture Group" 
+                            Grid.Row="12"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource PhoneTextLargeStyle}"/>
+
+                        <TextBlock
+                            x:Name="LectureGroup"
+                            Grid.Row="13"
+                            VerticalAlignment="Top"
+                            TextWrapping="Wrap"
+                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Margin="12,0,12,12"/>
+
+                        <TextBlock
+                            Text="Tutorial Group" 
+                            Grid.Row="14"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource PhoneTextLargeStyle}"/>
+
+                        <TextBlock
+                            x:Name="TutorialGroup"
+                            Grid.Row="15"
+                            VerticalAlignment="Top"
+                            TextWrapping="Wrap"
+                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Margin="12,0,12,12"/>
+
+                        <TextBlock
+                            Text="Lab Group" 
+                            Grid.Row="16"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource PhoneTextLargeStyle}"/>
+
+                        <TextBlock
+                            x:Name="LabGroup"
+                            Grid.Row="17"
+                            VerticalAlignment="Top"
+                            TextWrapping="Wrap"
+                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Margin="12,0,12,12"/>
+
+                    </Grid>
+                </ScrollViewer>
+                
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="Workbin">
+                <Grid>
+                    <ListBox ItemsSource="{Binding}" Name="WorkbinInfo" Tap="ViewWorkbin">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel 
+                                    Margin="12,0,24,12" 
+                                    Background="{StaticResource PhoneAccentBrush}"
+                                    Width="444"
+                                    Height="120">                             
+                                    <StackPanel Width="444" Orientation="Horizontal">
+                                        <TextBlock 
+                                            Text="{Binding Path=folderName}"
+                                            Style="{StaticResource PhoneTextLargeStyle}"
+                                            Width="352"
+                                            TextAlignment="Left"/>
+                                        
+                                        <TextBlock 
+                                            Text="{Binding Path=folderFileCount}"
+                                            Style="{StaticResource PhoneTextNormalStyle}"
+                                            Width="36"
+                                            Margin="0,12,0,0"
+                                            TextAlignment="Right"/>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Width="444" Orientation="Horizontal">
+                                        <TextBlock
+                                            Text="{Binding Path=folderOpenDate}"
+                                            Style="{StaticResource PhoneTextNormalStyle}"
+                                            Width="Auto"
+                                            TextAlignment="Right"/>
+                                        
+                                        <TextBlock
+                                            Text="-"
+                                            Style="{StaticResource PhoneTextNormalStyle}"
+                                            Width="Auto"
+                                            TextAlignment="Center"/>
+                                        
+                                        <TextBlock
+                                            Text="{Binding Path=folderCloseDate}"
+                                            Style="{StaticResource PhoneTextNormalStyle}"
+                                            Width="Auto"
+                                            TextAlignment="left"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item three-->
+            <controls:PivotItem Header="Announcement">
+                <Grid>
+                    <ListBox ItemsSource="{Binding}" Name="AnnounceInfo" Tap="ViewAnnouncement">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Height="Auto" Margin="0, 0, 0, 12" Orientation="Horizontal">
+                                    <toolkit:ContextMenuService.ContextMenu>
+                                        <toolkit:ContextMenu>
+                                            <toolkit:MenuItem
+                                                Header="Add as to-do"
+                                                Tap="AddAsToDo"/>
+                                        </toolkit:ContextMenu>
+                                    </toolkit:ContextMenuService.ContextMenu>
+                                    <StackPanel Orientation="Vertical" Width="400">
+                                        <TextBlock 
+                                                Text="{Binding Path=announceNameDisplay}" 
+                                                Style="{StaticResource PhoneTextLargeStyle}"
+                                                FontSize="36"
+                                                TextAlignment="Left" 
+                                                HorizontalAlignment="Left"/>
+                                        
+                                        <TextBlock 
+                                                Text="{Binding Path=announceCreatorDisplay}" 
+                                                TextAlignment="Left" 
+                                                HorizontalAlignment="Left"
+                                                Style="{StaticResource PhoneTextSmallStyle}"
+                                                FontWeight="Bold"/>
+                                        
+                                        <TextBlock 
+                                                Text="{Binding Path=announceContentPreview}"
+                                                Style="{StaticResource PhoneTextSubtleStyle}"
+                                                TextWrapping="Wrap" 
+                                                Height="52"/>
+                                    </StackPanel>
+
+                                    <TextBlock 
+                                        Text="{Binding Path=announceTimeDisplay}" 
+                                        Style="{StaticResource PhoneTextTitle3Style}"
+                                        TextAlignment="Right"
+                                        VerticalAlignment="Center"/>   
+                                    
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="appbar_button1" IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton x:Name="appbar_button2" IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="menuItem1" Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem x:Name="menuItem2" Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+    
+</phone:PhoneApplicationPage>
