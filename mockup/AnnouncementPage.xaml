@@ -35,6 +35,7 @@
             <TextBlock
                 x:Name="AnnouncementDate"
                 Style="{StaticResource PhoneTextSubtleStyle}"/>
+            <TextBlock/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
