@@ -148,6 +148,7 @@ namespace mockup
             string title = null;
             string content = null;
             var backgroundImage = new Uri("NUS_Logo.png", UriKind.Relative);
+            var baseUri = new Uri("", UriKind.Relative);
 
             // update application tile
             if ((Application.Current as App).todos.Count > 0)
@@ -180,7 +181,7 @@ namespace mockup
                 
                 // update the first application tile (primary tile)
                 appTile.Update(standardTile);
-                UpdateFlipTile("IVLE Metro", title, content, content, 0, null, backgroundImage, backgroundImage, null, backgroundImage, null); 
+                UpdateFlipTile("IVLE Metro", title, content, content, 0, baseUri, backgroundImage, backgroundImage, null, backgroundImage, null); 
             }
         }
 
@@ -209,8 +210,8 @@ namespace mockup
                 foreach (var tileToUpdate in ShellTile.ActiveTiles)
                 {
                     // Look for a match based on the Tile's NavigationUri (tileId).
-                    if (tileToUpdate.NavigationUri.ToString() == tileId.ToString())
-                    {
+                    //if (tileToUpdate.NavigationUri.ToString() == tileId.ToString())
+                    //{
                         // Get the constructor for the new FlipTileData class and assign it to our variable to hold the Tile properties.
                         var UpdateTileData = flipTileDataType.GetConstructor(new Type[] { }).Invoke(null);
 
@@ -229,7 +230,7 @@ namespace mockup
                         // Invoke the new version of ShellTile.Update.
                         shellTileType.GetMethod("Update").Invoke(tileToUpdate, new Object[] { UpdateTileData });
                         break;
-                    }
+                    //}
                 }
             }
 
