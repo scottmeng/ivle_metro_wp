@@ -28,6 +28,14 @@ namespace mockup
         private List<SemInfo> Sems = new List<SemInfo>();
         private int numOfSems;
 
+        // define OS version 7.10.8858
+        private static Version TargetedVersion = new Version(7, 10, 8858);
+        
+        // check if the current OS version is sufficient
+        public static bool IsTargetedVersion { 
+            get { return Environment.OSVersion.Version >= TargetedVersion; } 
+        }
+
         public PanoramaPage1()
         {
             InitializeComponent();

@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <AppExtra xmlns="" AppPlatformVersion="8.0">
+    <Extra Name="Tiles"/>
+  </AppExtra>
   <App xmlns="" ProductID="{7ada0e44-c84e-498e-98bd-4ec75fd966c6}" Title="IVLE Metro" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="mockup author" Description="Sample description" Publisher="mockup">
     <IconPath IsRelative="true" IsResource="false">NUS_Logo.png</IconPath>
     <Capabilities>
