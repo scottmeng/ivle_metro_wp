@@ -1,0 +1,22 @@
+add tilt effect to all controls
+	- google about how to add effect
+
+store token together with username and password
+
+auto log in if token is present and not expired
+
+see what could be done about the module secondary tiles
+
+check workbin bugs
+
+implement webcast feature
+
+add gradebook support
+
+fix module info page
+
+check for implementation of background task (update live tiles with next class info)
+
+update timetable feature so the very first class is the next one
+
+update icon and artwork

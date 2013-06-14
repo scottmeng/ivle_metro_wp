@@ -165,7 +165,8 @@ namespace mockup
                 }
             }
 
-            // check if there is any active tiles
+            // check for the very first active tile
+            // which should be the app tile
             var appTile = ShellTile.ActiveTiles.First();
 
             if (appTile != null)

@@ -75,6 +75,14 @@ namespace mockup
         {
             base.OnNavigatedTo(e);
 
+            if (NavigationService.CanGoBack)
+            {
+                while (NavigationService.RemoveBackEntry() != null)
+                {
+                    NavigationService.RemoveBackEntry();
+                }
+            }
+
             // load to-do data from public variables
             // every time the menupage is reloaded
             // just in case user have modified the to-do list
