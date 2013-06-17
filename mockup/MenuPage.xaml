@@ -13,16 +13,18 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="False" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
+    shell:SystemTray.IsVisible="False" 
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    local:TiltEffect.IsTiltEnabled="True">
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
         <controls:Panorama Title="IVLE Metro">
-            <!--
+            
             <controls:Panorama.Background>
-                <ImageBrush ImageSource="banner3.png"/>
+                <ImageBrush ImageSource="banner1.png"/>
             </controls:Panorama.Background>
-            -->
+            
             
             <!--Panorama item one-->
             <controls:PanoramaItem Header="modules">
@@ -30,7 +32,8 @@
                     <ListBox 
                         ItemsSource="{Binding Modules}" 
                         Name="ModuleInfo" 
-                        Tap="viewModule">
+                        Tap="viewModule"
+                        local:TiltEffect.SuppressTilt="True">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <toolkit:WrapPanel />
@@ -119,7 +122,9 @@
             <!--Panorama item three-->
             <controls:PanoramaItem Header="to-dos">
                 <Grid>
-                    <ListBox ItemsSource="{Binding}" Name="TodoInfo" Tap="viewTodo">
+                    <ListBox ItemsSource="{Binding}" 
+                             Name="TodoInfo" Tap="viewTodo" 
+                             local:TiltEffect.SuppressTilt="True">
                         <ListBox.ItemTemplate>
                             <DataTemplate  local:TiltEffect.IsTiltEnabled="True">
                                 <StackPanel 
