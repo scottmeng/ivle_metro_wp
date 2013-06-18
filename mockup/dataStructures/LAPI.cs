@@ -22,6 +22,13 @@ namespace mockup
         //public static String token {get; set;}
         public static String token;
 
+        public static string validateTokenURL()
+        {
+            string url = domain + "api/Lapi.svc/Validate?APIKey=" + key + "&Token=" + token;
+
+            return url;
+        }
+
         // get the request url with API item and parameters
         public static string requestURL(string item, string[] parameters, string[] paramsVal)
         {

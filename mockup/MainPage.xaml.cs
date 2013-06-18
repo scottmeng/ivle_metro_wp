@@ -29,6 +29,8 @@ namespace mockup
         private string domain;
         private string[] domains = { "NUSSTU", "NUSSTF", "NUSEXT", "GUEST" };
 
+         
+
         // Constructor
         public MainPage()
         {
@@ -36,8 +38,84 @@ namespace mockup
 
             LoadCredentials();
 
+            // if token exists in isolated storage
+            if (LoadToken())
+            {
+                loginProgressBar.IsIndeterminate = true;
+                UpdateToken();
+            }
+
             // upload application tile with the latest to-dos
             (Application.Current as App).UpdateAppTile();
+        }
+
+        // load token from isolated storage if existing
+        // return false if not
+        private bool LoadToken()
+        {
+            var settings = IsolatedStorageSettings.ApplicationSettings;
+
+            if (settings.Contains("token"))
+            {
+                LAPI.token = settings["token"].ToString();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // validate token and update it if 
+        // expiration is soon
+        private void UpdateToken()
+        {
+            HttpWebRequest request = HttpWebRequest.CreateHttp(LAPI.validateTokenURL());
+            request.BeginGetResponse(new AsyncCallback(HandleTokenResponse), request);
+        }
+
+        // handle the response and get the json string
+        public void HandleTokenResponse(IAsyncResult result)
+        {
+            HttpWebRequest request = (HttpWebRequest)result.AsyncState;
+            HttpWebResponse response;
+
+            try
+            {
+                response = (HttpWebResponse)request.EndGetResponse(result);
+                using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                {
+                    // returned JSON string for validation
+                    string responseString = reader.ReadToEnd();
+
+                    Token newToken = (Token)Deserialize(responseString, typeof(Token));
+
+                    if (newToken != null && newToken.TokenSuccess.Equals(true))
+                    {
+                        LAPI.token = newToken.TokenContent;
+
+                        Dispatcher.BeginInvoke(() =>
+                        {
+                            (Application.Current as App).online = true;
+
+                            SaveCredentials();
+                            SaveToken();
+                            loginProgressBar.IsIndeterminate = false;
+                            NavigationService.Navigate(new Uri(("/MenuPage.xaml"), UriKind.Relative));
+                        });
+                    }
+                    else
+                    {
+                        Dispatcher.BeginInvoke(() =>
+                        {
+                            loginProgressBar.IsIndeterminate = false;
+                        });
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+            }
         }
 
         // log in event by pressing the log in button
@@ -151,6 +229,7 @@ namespace mockup
                         (Application.Current as App).online = true;
 
                         SaveCredentials();
+                        SaveToken();
                         loginProgressBar.IsIndeterminate = false;
                         NavigationService.Navigate(new Uri(("/MenuPage.xaml"), UriKind.Relative));
                     });
@@ -229,6 +308,23 @@ namespace mockup
 
                 settings.Save();
             }
+        }
+
+        // save token into isolated storage
+        private void SaveToken()
+        {
+            var settings = IsolatedStorageSettings.ApplicationSettings;
+
+            if (settings.Contains("token"))
+            {
+                settings["token"] = LAPI.token;
+            }
+            else
+            {
+                settings.Add("token", LAPI.token);
+            }
+
+            settings.Save();
         }
 
         private void LoadCredentials()
