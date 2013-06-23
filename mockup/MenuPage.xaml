@@ -81,7 +81,9 @@
                                             FontWeight="Bold"/>
                                     </StackPanel>
                                     
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel 
+                                        Orientation="Horizontal" 
+                                        Margin="0,4,0,4">
                                         <TextBlock 
                                             Text="{Binding Path=classDayText}" 
                                             Style="{StaticResource PhoneTextSmallStyle}"
@@ -103,7 +105,8 @@
                                     </StackPanel>
                                     
                                     <StackPanel
-                                        Orientation="Horizontal">
+                                        Orientation="Horizontal"
+                                        Margin="0,4,0,4">
                                         <TextBlock 
                                             Text="Venue: " 
                                             Style="{StaticResource PhoneTextTitle3Style}"
@@ -181,5 +184,16 @@
     </Grid>
 
     <!--Panorama-based applications should not show an ApplicationBar-->
-   
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar 
+            IsVisible="True" 
+            IsMenuEnabled="True"
+            Mode="Minimized">
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem 
+                    Text="Log off"
+                    Click="Logoff_Menu_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

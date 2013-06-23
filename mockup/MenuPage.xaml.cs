@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using System.IO.IsolatedStorage;
 using System.IO;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
@@ -381,6 +382,22 @@ namespace mockup
             (Application.Current as App).UpdateAppTile();
 
             Todos.RemoveAt(selectedTodoIndex);
+        }
+
+        private void Logoff_Menu_Click(object sender, EventArgs e)
+        {
+            LAPI.token = null;
+
+            // remove token from storage settings
+            var settings = IsolatedStorageSettings.ApplicationSettings;
+
+            if (settings.Contains("token"))
+            {
+                settings.Remove("token");
+            }
+
+            settings.Save();
+            NavigationService.Navigate(new Uri(("/MainPage.xaml"), UriKind.Relative));
         }
     }
 }

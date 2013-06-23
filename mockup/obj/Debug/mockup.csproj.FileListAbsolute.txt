@@ -102,11 +102,8 @@ C:\Users\Scott\ivle_metro_wp\mockup\Bin\Debug\newOne.xap
 C:\Users\Scott\ivle_metro_wp\mockup\Bin\Debug\Microsoft.Phone.Controls.dll
 C:\Users\Scott\ivle_metro_wp\mockup\Bin\Debug\Newtonsoft.Json.dll
 C:\Users\Scott\ivle_metro_wp\mockup\Bin\Debug\Microsoft.Phone.Controls.xml
-C:\Users\Scott\ivle_metro_wp\mockup\Bin\Debug\Microsoft.Phone.Controls.Toolkit.pdb
-C:\Users\Scott\ivle_metro_wp\mockup\Bin\Debug\Microsoft.Phone.Controls.Toolkit.xml
 C:\Users\Scott\ivle_metro_wp\mockup\Bin\Debug\Newtonsoft.Json.pdb
 C:\Users\Scott\ivle_metro_wp\mockup\Bin\Debug\Newtonsoft.Json.xml
-C:\Users\Scott\ivle_metro_wp\mockup\obj\Debug\mockup.csprojResolveAssemblyReference.cache
 C:\Users\Scott\ivle_metro_wp\mockup\obj\Debug\App.g.cs
 C:\Users\Scott\ivle_metro_wp\mockup\obj\Debug\AddToDoPage.g.cs
 C:\Users\Scott\ivle_metro_wp\mockup\obj\Debug\AnnouncementPage.g.cs

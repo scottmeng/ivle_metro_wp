@@ -133,15 +133,6 @@
                 Click="login_Click" 
                 local:TiltEffect.IsTiltEnabled="True"/>
             
-            <CheckBox 
-                x:Name="rmbMe" 
-                Content="Remember Me" 
-                Grid.Row="5"
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center" Margin="0,0,176,0" Width="224" />
         </Grid>
         <toolkit:PerformanceProgressBar HorizontalAlignment="Left" Margin="0,140,0,0" Name="loginProgressBar" VerticalAlignment="Top" Height="13" Width="480" />
     </Grid>

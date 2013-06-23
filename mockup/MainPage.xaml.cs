@@ -41,8 +41,16 @@ namespace mockup
             // if token exists in isolated storage
             if (LoadToken())
             {
-                loginProgressBar.IsIndeterminate = true;
-                UpdateToken();
+                if (!NetworkInterface.GetIsNetworkAvailable())
+                {
+                    MessageBox.Show("No internet connection is available. Make sure you have either Wi-Fi or data connection.");
+                }
+                else
+                {
+                    DisableControls();
+                    loginProgressBar.IsIndeterminate = true;
+                    UpdateToken();
+                }
             }
 
             // upload application tile with the latest to-dos
@@ -74,6 +82,22 @@ namespace mockup
             request.BeginGetResponse(new AsyncCallback(HandleTokenResponse), request);
         }
 
+        // disable all controls
+        private void DisableControls()
+        {
+            UsernameInput.IsEnabled = false;
+            PasswordInput.IsEnabled = false;
+            DomainInput.IsEnabled = false;
+        }
+
+        // enable all controls
+        private void EnableControls()
+        {
+            UsernameInput.IsEnabled = true;
+            PasswordInput.IsEnabled = true;
+            DomainInput.IsEnabled = true;
+        }
+
         // handle the response and get the json string
         public void HandleTokenResponse(IAsyncResult result)
         {
@@ -100,6 +124,7 @@ namespace mockup
 
                             SaveCredentials();
                             SaveToken();
+                            EnableControls();
                             loginProgressBar.IsIndeterminate = false;
                             NavigationService.Navigate(new Uri(("/MenuPage.xaml"), UriKind.Relative));
                         });
@@ -108,6 +133,7 @@ namespace mockup
                     {
                         Dispatcher.BeginInvoke(() =>
                         {
+                            EnableControls();
                             loginProgressBar.IsIndeterminate = false;
                         });
                     }
@@ -275,39 +301,36 @@ namespace mockup
 
         private void SaveCredentials()
         {
-            if (rmbMe.IsChecked.Equals(true))
+            var settings = IsolatedStorageSettings.ApplicationSettings;
+
+            if (settings.Contains("username"))
             {
-                var settings = IsolatedStorageSettings.ApplicationSettings;
-
-                if (settings.Contains("username"))
-                {
-                    settings["username"] = username;
-                }
-                else
-                {
-                    settings.Add("username", username);
-                }
-
-                if (settings.Contains("password"))
-                {
-                    settings["password"] = password;
-                }
-                else
-                {
-                    settings.Add("password", password);
-                }
-
-                if (settings.Contains("domain"))
-                {
-                    settings["domain"] = domain;
-                }
-                else
-                {
-                    settings.Add("domain", domain);
-                }
-
-                settings.Save();
+                settings["username"] = username;
             }
+            else
+            {
+                settings.Add("username", username);
+            }
+
+            if (settings.Contains("password"))
+            {
+                settings["password"] = password;
+            }
+            else
+            {
+                settings.Add("password", password);
+            }
+
+            if (settings.Contains("domain"))
+            {
+                settings["domain"] = domain;
+            }
+            else
+            {
+                settings.Add("domain", domain);
+            }
+
+            settings.Save();
         }
 
         // save token into isolated storage
@@ -342,11 +365,6 @@ namespace mockup
                 DomainInput.SelectedItem = DomainInput.FindName(domain);
                 UsernameInput.Text = username;
                 PasswordInput.Password = password;
-                rmbMe.IsChecked = true;
-            }
-            else
-            {
-                rmbMe.IsChecked = false;
             }
         }
 
