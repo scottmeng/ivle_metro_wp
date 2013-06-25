@@ -101,12 +101,16 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="dataStructures\Todo.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="TiltEffect.cs" />
     <Compile Include="TodoPage.xaml.cs">
       <DependentUpon>TodoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="dataStructures\User.cs" />
     <Compile Include="dataStructures\Workbin.cs" />
+    <Compile Include="SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WorkbinPage.xaml.cs">
       <DependentUpon>WorkbinPage.xaml</DependentUpon>
     </Compile>
@@ -137,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TodoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -116,3 +116,5 @@ C:\Users\Scott\ivle_metro_wp\mockup\obj\Debug\mockup.g.resources
 C:\Users\Scott\ivle_metro_wp\mockup\obj\Debug\mockup.dll
 C:\Users\Scott\ivle_metro_wp\mockup\obj\Debug\mockup.pdb
 C:\Users\Scott\ivle_metro_wp\mockup\obj\Debug\XapCacheFile.xml
+C:\Users\Scott\ivle_metro_wp\mockup\obj\Debug\mockup.csprojResolveAssemblyReference.cache
+C:\Users\Scott\ivle_metro_wp\mockup\obj\Debug\SettingsPage.g.cs

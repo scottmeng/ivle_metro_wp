@@ -124,7 +124,6 @@ namespace mockup
 
                             SaveCredentials();
                             SaveToken();
-                            EnableControls();
                             loginProgressBar.IsIndeterminate = false;
                             NavigationService.Navigate(new Uri(("/MenuPage.xaml"), UriKind.Relative));
                         });

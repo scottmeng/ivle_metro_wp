@@ -384,6 +384,7 @@ namespace mockup
             Todos.RemoveAt(selectedTodoIndex);
         }
 
+        // click event on log off menu button
         private void Logoff_Menu_Click(object sender, EventArgs e)
         {
             LAPI.token = null;
@@ -398,6 +399,12 @@ namespace mockup
 
             settings.Save();
             NavigationService.Navigate(new Uri(("/MainPage.xaml"), UriKind.Relative));
+        }
+
+        // click event on settings menu button
+        private void Settings_Menu_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri(("/SettingsPage.xaml"), UriKind.Relative));
         }
     }
 }

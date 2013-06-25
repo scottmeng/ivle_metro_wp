@@ -19,36 +19,16 @@
         
         <TextBlock 
             x:Name="ModuleCodeTitle"
-            Margin="24,0,0,0"/>
+            Margin="24,0,0,0"
+            FontSize="24"
+            FontWeight="ExtraLight"
+            Foreground="Gray"/>
         <!--Pivot Control-->
-        <controls:Pivot>
+        <controls:Pivot Margin="0, 12, 0, 0">
             <!--Pivot item one-->
             <controls:PivotItem Header="Info">
                 <ScrollViewer>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+                    <StackPanel>
                         
                         <TextBlock
                             Text="Module Code" 
@@ -61,7 +41,7 @@
                             Grid.Row="1"
                             VerticalAlignment="Top"
                             TextWrapping="Wrap"
-                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Style="{StaticResource PhoneTextNormalStyle}"
                             Margin="12,0,12,12"/>
 
                         <TextBlock
@@ -75,7 +55,7 @@
                             Grid.Row="3"
                             VerticalAlignment="Top"
                             TextWrapping="Wrap"
-                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Style="{StaticResource  PhoneTextNormalStyle}"
                             Margin="12,0,12,12"/>
 
                         <TextBlock
@@ -89,7 +69,7 @@
                             Grid.Row="5"
                             VerticalAlignment="Top"
                             TextWrapping="Wrap"
-                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Style="{StaticResource  PhoneTextNormalStyle}"
                             Margin="12,0,12,12"/>
 
                         <TextBlock
@@ -103,7 +83,7 @@
                             Grid.Row="7"
                             VerticalAlignment="Top"
                             TextWrapping="Wrap"
-                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Style="{StaticResource  PhoneTextNormalStyle}"
                             Margin="12,0,12,12"/>
 
                         <TextBlock
@@ -117,7 +97,7 @@
                             Grid.Row="9"
                             VerticalAlignment="Top"
                             TextWrapping="Wrap"
-                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Style="{StaticResource  PhoneTextNormalStyle}"
                             Margin="12,0,12,12"/>
 
                         <TextBlock
@@ -129,7 +109,8 @@
                         <ListBox 
                             ItemsSource="{Binding}" 
                             Name="Facilitators"
-                            Grid.Row="11">
+                            Grid.Row="11"
+                            >
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" Margin="0, 0, 12, 0">
@@ -145,7 +126,7 @@
                                             TextWrapping="Wrap"
                                             Width="200"
                                             TextAlignment="Right"
-                                            Style="{StaticResource  PhoneTextSubtleStyle}"/>
+                                            Style="{StaticResource  PhoneTextNormalStyle}"/>
                                         
                                     </StackPanel>
                                 </DataTemplate>
@@ -163,7 +144,7 @@
                             Grid.Row="13"
                             VerticalAlignment="Top"
                             TextWrapping="Wrap"
-                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Style="{StaticResource  PhoneTextNormalStyle}"
                             Margin="12,0,12,12"/>
 
                         <TextBlock
@@ -177,7 +158,7 @@
                             Grid.Row="15"
                             VerticalAlignment="Top"
                             TextWrapping="Wrap"
-                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Style="{StaticResource  PhoneTextNormalStyle}"
                             Margin="12,0,12,12"/>
 
                         <TextBlock
@@ -191,10 +172,10 @@
                             Grid.Row="17"
                             VerticalAlignment="Top"
                             TextWrapping="Wrap"
-                            Style="{StaticResource  PhoneTextSubtleStyle}"
+                            Style="{StaticResource  PhoneTextNormalStyle}"
                             Margin="12,0,12,12"/>
 
-                    </Grid>
+                    </StackPanel>
                 </ScrollViewer>
                 
             </controls:PivotItem>
